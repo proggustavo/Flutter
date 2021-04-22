@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Weather extends StatefulWidget {
-  int index;
-  Weather(this.index);
+  int _index;
+  Weather(this._index);
   @override
   _WeatherState createState() => _WeatherState();
 }
@@ -31,7 +31,7 @@ class _WeatherState extends State<Weather> {
 
   Widget myFutureBuilder() {
     return FutureBuilder(
-        future: _getData(this.widget.index),
+        future: _getData(widget._index),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
